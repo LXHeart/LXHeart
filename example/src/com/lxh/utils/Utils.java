@@ -41,7 +41,7 @@ public class Utils {
 	}
 	/**
 	 * 将小数转换成百分制
-	 * @param num type：double
+	 * @param num type：double double类型的数据
 	 * @return String
 	 */
 	public static String numToPercent(double num){
