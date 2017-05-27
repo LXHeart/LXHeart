@@ -45,7 +45,7 @@ public class Utils {
 	 * @return String
 	 */
 	public static String numToPercent(double num){
-		DecimalFormat df = new DecimalFormat("0.00%");
+		DecimalFormat df = new DecimalFormat("0.000%");
 		return df.format(num);
 	}
 	
