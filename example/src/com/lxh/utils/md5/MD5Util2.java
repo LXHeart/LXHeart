@@ -248,8 +248,7 @@ public class MD5Util2
     return b;
   }
 
-  public static String byteHEX(byte ib)
-  {
+  public static String byteHEX(byte ib) {
     char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
 
     char[] ob = new char[2];
@@ -259,12 +258,4 @@ public class MD5Util2
 
     return s;
   }
-
-  public static void main(String[] args) {
-	  MD5Util2 m = new MD5Util2();
-	  
-	  String a = m.getMD5ofStr("321");
-	  System.out.println(a);
-}
- 
 }
