@@ -41,12 +41,10 @@ public class MD5Util1 {
         }
         return str;
     }
-    
-    
     /**
-     * ��ȡMD5ֵ
-     * @param str ��Ҫת��Ϊmd5���ַ�
-     * @return ����md5ֵ
+     * 获取MD5
+     * @param str 需要转换为MD5的字符串
+     * @return MD5字符串
      */
     public static String getMD5(String str){
     	 byte[] bytes = null;
@@ -58,9 +56,5 @@ public class MD5Util1 {
 			e.printStackTrace();
 		}
     	return str1;
-    }
-    
-    public static void main(String[] avg) throws NoSuchAlgorithmException {
-    	System.out.println(MD5Util1.getMD5("321"));
     }
 }
