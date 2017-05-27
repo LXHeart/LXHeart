@@ -58,9 +58,4 @@ public class MD5Util3 {
 			return null;
 		}
 	}
-	
-	public static void main(String[] args) {
-		String a = MD5Util3.md5("321");
-		System.out.println(a);
-	}
 }
