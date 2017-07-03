@@ -3,6 +3,19 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/pinyin/pinyin4j-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/commons-codec-1.10.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-examples-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-excelant-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-ooxml-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-ooxml-schemas-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/readExcel/poi-scratchpad-3.17-beta1.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
