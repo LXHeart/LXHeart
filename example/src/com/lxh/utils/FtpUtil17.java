@@ -1,4 +1,4 @@
-package com.bj58.qa.tmmp.utils;
+package com.lxh.utils;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="lib" path="lib/pinyin/pinyin4j-2.5.0.jar"/>
 	<classpathentry kind="lib" path="lib/readExcel/commons-codec-1.10.jar"/>
 	<classpathentry kind="lib" path="lib/readExcel/commons-collections4-4.1.jar"/>
@@ -16,6 +15,16 @@
 	<classpathentry kind="lib" path="lib/readExcel/poi-ooxml-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/readExcel/poi-ooxml-schemas-3.17-beta1.jar"/>
 	<classpathentry kind="lib" path="lib/readExcel/poi-scratchpad-3.17-beta1.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/jiguang-common-1.0.5.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/jpush-client-3.2.18-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/slf4j-api-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/slf4j-jdk14-1.6.6.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/slf4j-simple-1.7.7.jar"/>
+	<classpathentry kind="lib" path="lib/jiguangpush/gson-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/json/json.jar"/>
+	<classpathentry kind="lib" path="lib/json/json_simple-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/json/json-lib.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
