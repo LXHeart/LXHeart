@@ -216,8 +216,10 @@ public class JpushUserUtils {
 		map.put("time", "2017-07-28 22:18");
 		map.put("title", "系统消息");
 		
-		sendSysUserMessage("6FF8AFD65E114211B11F10779BE891CC", "开发明尼苏达狂风巨浪四大美女佛i接撒多方联手大美女克里夫死了都快疯了快圣诞节阿飞空间啦三季度弗兰克四大美女发来看你哦撒旦法计算的蒙牛方面索尼东方会计师独立法撒旦法客流集散地法雷克萨的蒙牛发来看马上打开了福美来斯达康奶粉款手机啊到你发来看撒旦解放", map);//给单个用户发送
-//		sendSysUserMessage("670ed0f593a481cc", "nihaoa", map);//给单个用户发送
+//		sendSysUserMessage("6FF8AFD65E114211B11F10779BE891CC", "开发明尼苏达狂风巨浪四大美女佛i接撒多方联手大美女克里夫死了都快疯了快圣诞节阿飞空间啦三季度弗兰克四大美女发来看你哦撒旦法计算的蒙牛方面索尼东方会计师独立法撒旦法客流集散地法雷克萨的蒙牛发来看马上打开了福美来斯达康奶粉款手机啊到你发来看撒旦解放", map);//给单个用户发送
+		sendSysUserMessage("670ed0f593a481cc", "3", map);//给单个用户发送
+		sendSysUserMessage("b7f9524b3b83371d", "3", map);//给单个用户发送
+		
 //		sendAllMessage("this is a test", map);//给整个app用户发送
 	}
 }
