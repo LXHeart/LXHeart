@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="ssm_projec"
+  id="myeclipse.1499658011201"
+  context-root="/ssm_projec"
+  j2ee-spec="6.0"
+  archive="ssm_projec.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
