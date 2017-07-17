@@ -1,6 +1,5 @@
 package com.lxh.utils;
 
-import java.io.File;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,23 +24,19 @@ public class Utils {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 	/**
-	 * 删除文件
-	 * @param path 需要删除的文件的路径
-	 * @return boolean 成功返回true，失败返回false
+	 * 获取百分比；例如传入类型为double的"0.38654"，将会返回String类型的"38.65%"
+	 * @param num 传入double类型的num
+	 * @return String
+	 * @since 2017/07/14
+	 * @author LXHeart
 	 */
-	public static boolean delFile(String path){
-		boolean flag = false;
-		File file = new File(path);
-		//判断是否是文件与是否存在
-		if (file.isFile() && file.exists()) {
-			file.delete();
-			flag = true;
-		}
-		return flag;
+	public static String getPercent(double num){
+		DecimalFormat df = new DecimalFormat("0.00%");
+		return df.format(num);
 	}
 	
-	
 	public static void main(String[] args) {
+		System.out.println(getPercent(0.38654));
 	}
 
 }
