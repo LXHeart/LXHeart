@@ -192,6 +192,92 @@ public class ImplementsRunnable implements Runnable{
 		 * setPriority():设置一个线程的优先级；
 		 * 
 		 * 
+		 * 线程同步：
+		 * 1.synchronized关键字的作用域有两种：
+		 * 	1.1 是某个对象实例内,synchronized aMethod(){}可以防止多个线程同时访问这个对象的synchronized方法(如果一个对象有多个synchronized方法，
+		 * 只要一个线程访问了其中的一个synchronized方法，其他线程不能同时访问这个对象的中任何一个synchronized方法)。这时，不同的对象实例的
+		 * synchronized方法是不相干扰的。也就是说，其他线程照样可以同时访问相同类的另一个对象实例中的synchronized方法；
+		 * 	1.2 是某个类的范围，synchronized static aStaticMehtod{}防止多个线程同时访问这个类中的synchronized static方法，它可以对
+		 * 类的所有对象实例起作用；
+		 * 
+		 * 2.除了方法前用synchronized关键字，synchronized关键字还可以用于方法中的某个区块中，表示只对这个区块的资源实行互斥访问。用法是：
+		 * synchronized(this){区块}，它的作用域是当前对象；
+		 * 
+		 * 3.synchronized关键字是不能继承的，也就是说，基类的方法synchronized f(){}在继承类中并不自动是synchronized f(){}，而是变成
+		 * 了f(){}。继承类需要你显示的指定它的某个方法为synchronized方法；
+		 * 
+		 *     java对多线程的支持与同步机制深受大家的喜爱，似乎看起来使用了synchronized关键字就可以轻松的解决多线程共享数据同步问题。到底如何？还得
+		 * 对synchronized关键字的作用进行深入了解才可以定论。
+		 *     总的来说，synchronized关键字可以作为函数的修饰符，也可作为函数内的语句，也就是平时说的同步方法和同步语句块。如果再细分的话，
+		 * synchronized可作用于instance变量、Object reference(对象引用)、static函数和class literals(类名称字面常量)身上。
+		 * 
+		 * 在进一步阐述之前，我们需要明确几点：
+		 * 1.无论synchronized关键字加在方法上还是对象上，它取得的锁都是对象，而不是把一段代码或函数当作锁--而且同步方法很可能还会被其他线程的对象访问。
+		 * 2.每个对象只有一个锁(lock)与之相关联；
+		 * 3.实现同步是要很大的系统开销作为带价的，甚至可能造成死锁，所以尽量避免无谓的同步控制；
+		 * 
+		 * 接着来讨论synchronized用到不同地方对代码产生的影响：
+		 * 假设P1、P2是同一个类的不同对象，这个类中定义了一下几种情况的同步块或同步方法，P1、P2就都可以调用他们。
+		 * 1.把synchronized当作函数修饰符时，示例代码如下：public synchronized void methodAAA(){}，这也就是同步方法，那这时synchronized
+		 * 锁定的是那个对象呢？它锁定的是调用这个同步方法的对象，也就是说，当一个对象P1在不同的线程中执行这个同步方法时，他们之间会行程互斥，达到同步
+		 * 的效果。但是这个对象所属的Class锁产生的另一个对象P2却可以任一调用这个被加了synchronized关键字的方法。
+		 * 上面的示例代码等同与如下代码：
+		 * public void methodAAA(){
+		 *   synchronized(this){
+		 *     
+		 *   }
+		 * }
+		 * this指的是什么？它指的就是调用这个方法的对象，如P1。可见同步方法实质是将synchronized作用于object refrence。--那个拿到了P1对象
+		 * 锁的线程，才可以调用P1的同步方法，而对P2而言，P1这个锁与它毫不相干，程序也可能在这种情形下摆脱同步机制的控制，造成数据混乱；
+		 * 
+		 * 2.同步块，示例代码：
+		 * public void method3(SomeObject so){
+		 *   synchronized(so){
+		 *   
+		 *   }
+		 * }
+		 * 这时，锁就是so这个对象，谁拿到这个锁谁就可以运行它所控制的那段代码。当有一个明确的对象作为锁时，就可以这样写程序，但当没有明确的对象作为
+		 * 锁，只是想让一段代码同步时，可以创建一个特殊的instance变量(他得到的是一个对象)来充当锁：
+		 * class Foo implements Runnable{
+		 *   private byte[] lock = new byte[0];
+		 *   public void methodA(){
+		 *     synchronized(lock){
+		 *     
+		 *     }
+		 *   }
+		 * }
+		 * 注：零长度的byte数组对象创建起来将比任何对象都经济--察看编译后的字节码：生成零长度的byte[0]对象只需三条操作码，而Object lock = new Object()则需要7行操作码。
+		 * 
+		 * 3.将synchronized作用于static函数：
+		 * class Foo{
+		 *   public synchronized static void methodAAA(){
+		 *   
+		 *   }
+		 *   public void methodBBB(){
+		 *     synchronized(Foo.class){
+		 *     }
+		 *   }
+		 * }
+		 * 代码中的methodBBB方法是把class literal作为锁的情况，它和同步的static函数产生的效果是一样的，取得的锁很特别，是当前调用这个方法的对象
+		 * 所属的类(class，而不在是由这个calss产生的某个具体对象了)。记得在《effective java》一书中看看到过将Foo.class和P1.class用于做同步
+		 * 锁还不一样，不能用P1.getClass()来达到锁这个class的目的。P1指的是由Foo类产生的对象。
+		 * 可以推断：如果一个类中定义了一个synchronized函数A，也定义了一个sychronized的instance函数B，那么这个类的同一对象Obj在多线程中分别
+		 * 访问A和B两个方法时，不会构成同步，因为他们的锁都不一样。A方法的锁是Obj这个对象，而B的锁是Obj所属的那个Class。
+		 * 
+		 * 总结一下：
+		 * 1.线程同步的目的是为了保护多个线程访问一个资源时对资源的破坏。
+		 * 2.线程同步方法是通过锁来实现，每个对象都有且仅有一个锁，这个锁与一个特定的对象关联，线程一旦获取了对象锁，其他访问该对象的线程就无法再访问该对象的其他非同步方法；
+		 * 3.对于静态同步方法，锁是针对这个类的，锁对象是该类的Class对象。静态和非静态方法的锁互不干预。一个线程获得锁，当在一个同步方法中访问另外对象上的同步方法时，会获得这两个对象锁；
+		 * 4.对于同步，要时刻清醒在那个对象上同步，这是关键；
+		 * 5.编写线程安全的类，需要时刻注意对多个线程竞争的访问资源的逻辑和安全做出正确的判断，对"原子"操作做出分析，并保证原子操作期间别的线程无法访问竞争资源。
+		 * 6.当多个线程等待一个对象锁时，没有获取到锁的线程将发生阻塞；
+		 * 7.死锁是线程间相互等待锁造成的，在实际中发生的概率非常小。真让你写个死锁程序，不一定好使，呵呵。但是，一旦程序发生死锁，程序将死掉。
+		 * 
+		 * 
+		 * 线程数据传递：
+		 * 1.通过构造方法传递数据；
+		 * 2.通过变量与set方法；
+		 * 3.通过回调函数传递数据
 		 * 
 		 * 
 		 * 
