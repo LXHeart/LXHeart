@@ -22,12 +22,10 @@ public class GetThumbnailImage {
                     if((width*1.0)/w < (height*1.0)/h){
                         if(width > w){
                             h = Integer.parseInt(new java.text.DecimalFormat("0").format(height * w/(width*1.0)));
-//                            logger.debug("change image's height, width:{}, height:{}.",w,h);
                         }
                     } else {
                         if(height > h){
                             w = Integer.parseInt(new java.text.DecimalFormat("0").format(width * h/(height*1.0)));
-//                            logger.debug("change image's width, width:{}, height:{}.",w,h);
                         }
                     }
                 }
@@ -39,11 +37,9 @@ public class GetThumbnailImage {
                 // 将图片保存在原目录并加上前缀
                 ImageIO.write(bi, "jpg", new File(p.substring(0,p.lastIndexOf(File.separator)) + File.separator +prevfix+imgFile.getName()));
             } catch (IOException e) {
-//            	logger.error("generate thumbnail image failed.",e);
             	System.out.println("generate thumbnail image failed");
             }
         }else{
-//        	logger.warn("the image is not exist.");
         	System.out.println("this image is not exist!");
         }
     }

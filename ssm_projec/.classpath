@@ -12,5 +12,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/chengguan_manage/WebRoot/WEB-INF/lib/mybatis-enhance-actable.jar"/>
 	<classpathentry kind="output" path="src/main/webapp/src/main/java"/>
 </classpath>

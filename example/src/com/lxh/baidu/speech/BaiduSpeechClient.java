@@ -23,7 +23,7 @@ public class BaiduSpeechClient {
 	        client.setSocketTimeoutInMillis(60000);
 
 	        // 参数为本地图片路径
-	        String imagePath = "D://123.jpg";
+	        String imagePath = "D://qqqq.jpg";
 	        JSONObject response = client.basicGeneral(imagePath, new HashMap<String, String>());
 	        System.out.println(response.toString());
 
