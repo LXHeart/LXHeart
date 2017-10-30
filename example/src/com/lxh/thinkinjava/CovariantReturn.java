@@ -25,5 +25,4 @@ public class CovariantReturn {
 		g = m.process();
 		System.out.println(g);
 	}	
-
 }
