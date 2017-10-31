@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import java.util.logging.Logger;
 /**
  * 异常与记录日志
+ * 将所有记录日志的基础设施都构建在异常自身中
  * @author Administrator
  *
  */
