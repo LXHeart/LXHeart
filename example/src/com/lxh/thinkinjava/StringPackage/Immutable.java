@@ -1,7 +1,7 @@
 package com.lxh.thinkinjava.StringPackage;
 /**
  * 不可变String
- * 
+ * 当调用upcase()方法时
  * @author Administrator
  *
  */
